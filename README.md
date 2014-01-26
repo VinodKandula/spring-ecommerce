@@ -25,18 +25,29 @@ Theming and direction was taken from the [Spring Tutorials](https://spring.io/gu
 Project architecture uses DAO Pattern and Life Preserver Pattern to separate Core Domain concerns from Integration
 components.
 
-* java
-..* config // Spring Configuration
-..* core
-....* domain // Value Objects (Maps Persistence VO to Service VO)
-....* service // System Service layer used by the different system components to access the core
-..* persistence // The main package handling persistence through Hibernate using the DAO Pattern
-....* domain // Value Objects (Maps Persistence VO to DB)
-....* repository // DAO Contracts and Implementations
-..* web
-....* controller // Package for the Spring MVC Controllers
-....* domain // Value Objects that are mapped to the View (Maps Service VO to View VO)
+```
+java
 
+    + config // Spring Configuration
+    |
+    + core
+    |   |
+    |   + domain // Value Objects (Maps Persistence VO to Service VO)
+    |   |
+    |   + service // System Service layer used by the different system components to access the core
+    |
+    + persistence // The main package handling persistence through Hibernate using the DAO Pattern
+    |   |
+    |   + domain // Value Objects (Maps Persistence VO to DB)
+    |   |
+    |   + repository // DAO Contracts and Implementations
+    |
+    + web
+        |
+        + controller // Package for the Spring MVC Controllers
+        |
+        + domain // Value Objects that are mapped to the View (Maps Service VO to View VO)
+```
 ## 3. Configuration
 
 There is an ```import.sql``` in the production resources folder. It contains SQL queries to populate the database with
